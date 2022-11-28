@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "lib": ["es6"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    "target": "es2018",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": ["es2018", "esnext.asynciterable"],                                      /* Specify a set of bundled library declaration files that describe the target runtime environment. */
     "module": "commonjs",                                /* Specify what module code is generated. */
     "rootDir": "src",                                    /* Specify the root folder within your source files. */
     "resolveJsonModule": true,                           /* Enable importing .json files. */
@@ -10,6 +10,8 @@
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "strict": true,                                      /* Enable all strict type-checking options. */
     "noImplicitAny": true,                               /* Enable error reporting for expressions and declarations with an implied 'any' type. */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
