@@ -13,7 +13,7 @@ const runServer = async () => {
         resolvers,
         typeDefs,
         cors: {
-            origin: ['http://localhost:3000', 'https://studio.apollographql.com'],
+            origin: [process.env.FRONT_URL, 'https://studio.apollographql.com'],
             credentials: true,
         },
         context( { req, res} : MyContext ) {
@@ -21,8 +21,8 @@ const runServer = async () => {
         }
     });
 
-    await server.listen(4000, () => {
-        console.log('server started')
+    await server.listen(process.env.PORT, () => {
+        console.log(`server started port ${process.env.PORT}`)
     });
 }
 
