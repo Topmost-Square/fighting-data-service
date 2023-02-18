@@ -1,10 +1,10 @@
-const userResolver = require("./UserResolver");
+const FightingDataResolver = require("./FightingDataResolver");
 
 module.exports = {
     Query: {
-        ...userResolver.Query
+        ...FightingDataResolver.Query
     },
     Mutation: {
-        ...userResolver.Mutation
+        ...FightingDataResolver.Mutation
     }
 }

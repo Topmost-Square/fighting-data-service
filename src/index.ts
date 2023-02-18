@@ -1,3 +1,5 @@
+import {verify} from "jsonwebtoken";
+
 const {ApolloServer} = require('apollo-server')
 import * as dotenv from 'dotenv';
 import * as mongoose from "mongoose";
@@ -17,7 +19,22 @@ const runServer = async () => {
             credentials: true,
         },
         context( { req, res} : MyContext ) {
-            return ({req, res});
+            let token = null;
+
+            const bearer = req.headers.authorization || null;
+
+            if (bearer) {
+                token  = bearer!.split(' ')[1];
+
+                if (!token) throw new Error('Not authenticated');
+
+                const tokenPayload = verify(token, process.env.ACCESS_TOKEN_SECRET!);
+                if (!tokenPayload) throw new Error('Not authenticated');
+
+                token = tokenPayload as any;
+            }
+
+            return { token };
         }
     });
 
